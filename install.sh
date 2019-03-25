@@ -2,7 +2,7 @@
 
 SCRIPT_PATH=$(realpath $0)
 DIR_PATH=$(dirname $SCRIPT_PATH)
-
+ARCH=$(dpkg --print-architecture)
 
 add_debian_repo() {
     # Will add additional APT repo in the future
@@ -12,7 +12,11 @@ add_debian_repo() {
 add_latest_drivers_vlc() {
     # function to update the latest vlc drivers which will allow it to play MRL of latest videos
     wget -P /home/pi  https://raw.githubusercontent.com/videolan/vlc/master/share/lua/playlist/youtube.lua
-    sudo mv /home/pi/youtube.lua /usr/lib/arm-linux-gnueabihf/vlc/lua/playlist/youtube.luac
+    TARGETLIB=arm-linux-gnueabihf
+    if [ "x$ARCH" = "xarm64" ] ; then
+	    TARGETLIB=aarch64-linux-gnu
+    fi
+    sudo mv /home/pi/youtube.lua /usr/lib/$TARGETLIB/vlc/lua/playlist/youtube.luac
 }
 
 
