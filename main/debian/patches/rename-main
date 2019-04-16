@@ -1,0 +1,39 @@
+---
+ states/susi_state_machine.py |    4 ++--
+ ui/app_window.py             |    6 +++---
+ 2 files changed, 5 insertions(+), 5 deletions(-)
+
+--- main.orig/states/susi_state_machine.py
++++ main/states/susi_state_machine.py
+@@ -69,10 +69,10 @@ class Components:
+                 logger.error('Some error occurred in login. Check you login details in config.json.\n%s', e)
+ 
+         if self.config['hotword_engine'] == 'Snowboy':
+-            from main.hotword_engine.snowboy_detector import SnowboyDetector
++            from susi_linux.hotword_engine.snowboy_detector import SnowboyDetector
+             self.hotword_detector = SnowboyDetector()
+         else:
+-            from main.hotword_engine.sphinx_detector import PocketSphinxDetector
++            from susi_linux.hotword_engine.sphinx_detector import PocketSphinxDetector
+             self.hotword_detector = PocketSphinxDetector()
+ 
+         if self.config['WakeButton'] == 'enabled':
+--- main.orig/ui/app_window.py
++++ main/ui/app_window.py
+@@ -5,13 +5,13 @@ import logging
+ import gi
+ import json_config
+ 
+-from main.ui import ConfigurationWindow
++from susi_linux.ui import ConfigurationWindow
+ 
+ gi.require_version('Gtk', '3.0')  # nopep8
+ 
+ from async_promises import Promise
+-from main.ui.animators import ListeningAnimator, ThinkingAnimator
+-from main.ui.renderer import Renderer
++from susi_linux.ui.animators import ListeningAnimator, ThinkingAnimator
++from susi_linux.ui.renderer import Renderer
+ from gi.repository import Gtk
+ 
+ TOP_DIR = os.path.dirname(os.path.abspath(__file__))

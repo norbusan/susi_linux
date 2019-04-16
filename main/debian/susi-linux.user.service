@@ -1,0 +1,10 @@
+[Unit]
+Description=SUSI Linux
+Wants=network-online.target
+After=network-online.target susi-server.service
+
+[Service]
+ExecStart=/usr/bin/python3 -m susi_linux -v --short-log
+
+[Install]
+WantedBy=default.target
