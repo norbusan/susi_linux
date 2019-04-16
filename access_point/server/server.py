@@ -37,7 +37,7 @@ def config():
     hotword = request.args.get('hotword')
     wake = request.args.get('wake')
     os.chdir(config_json_folder)
-    subprocess.Popen(['sudo', 'python3', configuration_script, stt, tts, hotword, wake])  #nosec #pylint-disable type: ignore
+    subprocess.Popen(['python3', configuration_script, stt, tts, hotword, wake])  #nosec #pylint-disable type: ignore
     subprocess.call(['sudo', 'systemctl', 'daemon-reload']) #nosec #pylint-disable type: ignore
     subprocess.call(['sudo', 'systemctl', 'disable', 'ss-python-flask.service']) #nosec #pylint-disable type: ignore
     subprocess.call(['sudo', 'systemctl', 'enable', 'ss-susi-linux.service']) #nosec #pylint-disable type: ignore
@@ -54,7 +54,7 @@ def login():
     email = request.args.get('email')
     password = request.args.get('password')
     os.chdir(config_json_folder)
-    subprocess.call(['sudo', 'python3', authentication_script, auth, email, password]) #nosec #pylint-disable type: ignore
+    subprocess.call(['python3', authentication_script, auth, email, password]) #nosec #pylint-disable type: ignore
     display_message = {"authentication":"successful", "auth": auth, "email": email, "password": password}
     resp = jsonify(display_message)
     resp.status_code = 200
@@ -109,7 +109,7 @@ def reboot():
     tts = request.form['tts']
     hotword = request.form['hotword']
     wake = request.form['wake']
-    subprocess.Popen(['sudo', 'python3', configuration_script, stt, tts, hotword, wake])  #nosec #pylint-disable type: ignore
+    subprocess.Popen(['python3', configuration_script, stt, tts, hotword, wake])  #nosec #pylint-disable type: ignore
     subprocess.call(['sudo', 'systemctl', 'daemon-reload']) #nosec #pylint-disable type: ignore
     subprocess.call(['sudo', 'systemctl', 'disable', 'ss-python-flask.service']) #nosec #pylint-disable type: ignore
     subprocess.call(['sudo', 'systemctl', 'enable', 'ss-susi-linux.service']) #nosec #pylint-disable type: ignore

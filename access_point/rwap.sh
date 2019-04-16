@@ -19,11 +19,12 @@ cp /etc/network/interfaces.d/wlan.client /etc/network/interfaces.d/wlan-client
 
 #Empty port 5000
 #Remove the server file from auto-boot
-sudo systemctl enable ss-startup-audio.service
-sudo systemctl enable ss-susi-linux.service
-sudo systemctl disable ss-python-flask.service
-sudo systemctl enable ss-susi-login.service
+systemctl enable ss-startup-audio.service
+systemctl enable ss-susi-linux.service
+systemctl disable ss-python-flask.service
+systemctl enable ss-susi-login.service
 
-echo "Please reboot"
+echo "Reboot in 10sec"
 sleep 10;
-sudo reboot
+reboot
+

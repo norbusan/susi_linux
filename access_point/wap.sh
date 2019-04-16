@@ -47,4 +47,5 @@ systemctl enable dnsmasq
 # add server in the auto-boot up list
 echo "All done! Rebooting"
 
-sudo reboot
+reboot
+

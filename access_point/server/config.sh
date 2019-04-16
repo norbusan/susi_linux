@@ -9,7 +9,7 @@ HOTWORD="$3"
 WAKE="$4"
 
 cd $DIR_PATH/../../
-sudo python3 config_generator.py $STT $TTS $HOTWORD $WAKE
+python3 config_generator.py $STT $TTS $HOTWORD $WAKE
 
 sudo systemctl daemon-reload
 sudo systemctl disable ss-python-flask.service

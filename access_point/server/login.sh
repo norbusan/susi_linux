@@ -8,4 +8,4 @@ EMAIL="$2"
 PASSWORD="$3"
 
 cd $DIR_PATH/../../
-sudo python3 authentication.py $AUTH $EMAIL $PASSWORD
+python3 authentication.py $AUTH $EMAIL $PASSWORD
