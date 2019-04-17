@@ -1,0 +1,46 @@
+INSTALLATION OF SUSI.AI ON DEBIAN AND UBUNTU DESKTOPS
+=====================================================
+
+Install dependencies
+--------------------
+
+
+TODO - reduce dependencies and add them to the respective Debian packages
+
+```
+sudo apt-get install ca-certificates git openssl wget python3-setuptools perl libterm-readline-gnu-perl \
+        python3-pip sox libsox-fmt-all flac libportaudio2 libatlas3-base libpulse0 libasound2 \
+        vlc-bin vlc-plugin-base vlc-plugin-video-splitter python3-cairo python3-flask flite \
+        openjdk-8-jdk-headless pixz udisks2 i2c-tools libasound2-plugins python3-dev \
+        swig python3-requests python3-service-identity python3-pyaudio python3-levenshtein \
+        python3-pafy python3-colorlog python3-watson-developer-cloud libpulse-dev libasound2-dev \
+        libatlas-base-dev
+```
+
+
+TODO - make the list explicit!!!!
+TODO - remove those from the below list that are installed via the apt call!
+
+sudo pip3 install -r susi_api_wrapper/python_wrapper/requirements.txt
+sudo pip3 install pip3 install \
+	speechRecognition==3.8.1			\
+	pocketsphinx==0.1.15				\
+	json_config					\
+	google_speech					\
+	async_promises					\
+	pyalsaaudio					\
+	'youtube-dl>2018'				\
+	python-vlc					\
+	pafy						\
+	rx
+
+sudo pip3 install -r susi_linux/requirements-special.txt
+
+
+add my repo
+add my key
+apt-get install susi-server susi-linux
+sudo systemctl start susi-server
+systemclt start susi-linux
+	(or start-susi-linux)
+
