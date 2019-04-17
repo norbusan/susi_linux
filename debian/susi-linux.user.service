@@ -4,7 +4,7 @@ Wants=network-online.target
 After=network-online.target susi-server.service
 
 [Service]
-ExecStart=/usr/bin/python3 -m susi_linux -v --short-log
+ExecStart=/usr/bin/start-susi-linux
 
 [Install]
 WantedBy=default.target

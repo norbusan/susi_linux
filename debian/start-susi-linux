@@ -16,8 +16,8 @@ then
   "WakeButton": "not available",
   "default_stt": "google",
   "default_tts": "google",
-  "detection_bell_sound": "extras/detection-bell.wav",
-  "flite_speech_file_path": "extras/cmu_us_slt.flitevox",
+  "detection_bell_sound": "/usr/share/susi-linux/detection-bell.wav",
+  "flite_speech_file_path": "/usr/share/susi-linux/cmu_us_slt.flitevox",
   "hotword_engine": "Snowboy",
   "usage_mode": "anonymous",
   "room_name": "",
@@ -26,3 +26,8 @@ then
   }
 }
 EOF
+fi
+
+cd "$SHOME"
+exec /usr/bin/python3 -m susi_linux -v --short-log
+

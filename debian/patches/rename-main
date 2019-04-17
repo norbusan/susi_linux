@@ -1,10 +1,10 @@
 ---
- states/susi_state_machine.py |    4 ++--
- ui/app_window.py             |    6 +++---
+ main/states/susi_state_machine.py |    4 ++--
+ main/ui/app_window.py             |    6 +++---
  2 files changed, 5 insertions(+), 5 deletions(-)
 
---- main.orig/states/susi_state_machine.py
-+++ main/states/susi_state_machine.py
+--- susi_linux.git.orig/main/states/susi_state_machine.py
++++ susi_linux.git/main/states/susi_state_machine.py
 @@ -69,10 +69,10 @@ class Components:
                  logger.error('Some error occurred in login. Check you login details in config.json.\n%s', e)
  
@@ -18,8 +18,8 @@
              self.hotword_detector = PocketSphinxDetector()
  
          if self.config['WakeButton'] == 'enabled':
---- main.orig/ui/app_window.py
-+++ main/ui/app_window.py
+--- susi_linux.git.orig/main/ui/app_window.py
++++ susi_linux.git/main/ui/app_window.py
 @@ -5,13 +5,13 @@ import logging
  import gi
  import json_config

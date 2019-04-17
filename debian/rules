@@ -1,0 +1,28 @@
+#!/usr/bin/make -f
+
+DDIR=debian/susi-linux
+BASE=/usr/lib/python3/dist-packages
+SLINUX=$(BASE)/susi_linux
+DATADIR=/usr/share/susi-linux
+
+DISTFILES=hotword_engine light_control states wav hardware_components __init__.py __main__.py speech ui
+DATAFILES=cmu_us_slt.flitevox  connect-error.wav  detection-bell.wav  problem.wav  recognition-error.wav
+
+%:
+	dh $@
+
+override_dh_auto_install:
+	mkdir -p $(DDIR)$(SLINUX)
+	for i in $(DISTFILES) ; do \
+	  cp -a main/$$i $(DDIR)$(SLINUX) ; \
+	done
+	mkdir -p $(DDIR)$(DATADIR)
+	for i in $(DATAFILES) ; do \
+	  cp extras/$$i $(DDIR)$(DATADIR) ; \
+	done
+	mkdir -p $(DDIR)/usr/bin
+	cp debian/start-susi-linux $(DDIR)/usr/bin
+	chmod 0755 $(DDIR)/usr/bin/start-susi-linux
+	# clean up
+	for i in `find $(DDIR) -name __pycache__` ; do rm -rf $$i ; done
+
