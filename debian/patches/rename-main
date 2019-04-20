@@ -1,11 +1,12 @@
 ---
  main/states/susi_state_machine.py |    4 ++--
  main/ui/app_window.py             |    6 +++---
- 2 files changed, 5 insertions(+), 5 deletions(-)
+ main/ui/renderer.py               |    2 +-
+ 3 files changed, 6 insertions(+), 6 deletions(-)
 
 --- susi_linux.git.orig/main/states/susi_state_machine.py
 +++ susi_linux.git/main/states/susi_state_machine.py
-@@ -69,10 +69,10 @@ class Components:
+@@ -62,10 +62,10 @@ class Components:
                  logger.error('Some error occurred in login. Check you login details in config.json.\n%s', e)
  
          if self.config['hotword_engine'] == 'Snowboy':
@@ -37,3 +38,13 @@
  from gi.repository import Gtk
  
  TOP_DIR = os.path.dirname(os.path.abspath(__file__))
+--- susi_linux.git.orig/main/ui/renderer.py
++++ susi_linux.git/main/ui/renderer.py
+@@ -1,6 +1,6 @@
+ from abc import ABC, abstractclassmethod
+ from rx.subjects import Subject
+-from main import SusiStateMachine
++from susi_linux import SusiStateMachine
+ 
+ 
+ class Renderer(ABC):
