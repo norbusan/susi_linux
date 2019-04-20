@@ -10,6 +10,15 @@ Vcs-Browser: https://github.com/fossasia/susi_linux
 
 Package: susi-linux
 Architecture: all
-Depends: python3, susi-python, susi-server, ${shlibs:Depends}, ${misc:Depends}
+Depends: python3, susi-python, susi-server, ${shlibs:Depends}, ${misc:Depends},
+	python3-alsaaudio,
+	python3-appdirs,
+	python3-watson-developer-cloud,
+	python3-colorlog,
+	python3-gi,
+	python3-cairo,
+	gir1.2-gtk-3.0,
+	sox,
+	libsox-fmt-all
 Description: SUSI.AI Recognition Engine
  Some intelligent explanation
