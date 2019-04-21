@@ -20,6 +20,9 @@ override_dh_auto_install:
 	  cp -a main/$$i $(DDIR)$(SLINUX) ; \
 	done
 	mkdir -p $(DDIR)$(DATADIR)
+	if [ ! -r extras/cmu_us_slt.flitevox ] ; then \
+	  wget "http://www.festvox.org/flite/packed/flite-2.0/voices/cmu_us_slt.flitevox" -P extras ; \
+	fi
 	for i in $(DATAFILES) ; do \
 	  cp $$i $(DDIR)$(DATADIR) ; \
 	done
