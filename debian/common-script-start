@@ -29,5 +29,4 @@ EOF
 fi
 
 cd "$SHOME"
-exec /usr/bin/python3 -m susi_linux -v --short-log
 

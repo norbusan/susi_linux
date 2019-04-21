@@ -1,0 +1,14 @@
+---
+ app.py |    4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+--- susi_linux.git.orig/app.py
++++ susi_linux.git/app.py
+@@ -1,4 +1,4 @@
+-from main.ui import SusiAppWindow
++from susi_linux.ui import SusiAppWindow
+ 
+ window = SusiAppWindow()
+-window.show_window()
+\ No newline at end of file
++window.show_window()

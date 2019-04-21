@@ -1,0 +1,6 @@
+#!/bin/sh
+
+. /usr/share/susi-linux/common-script-start
+
+exec python3 /usr/share/susi-linux/app.py "$@"
+
