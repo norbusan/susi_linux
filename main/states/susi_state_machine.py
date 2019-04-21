@@ -62,10 +62,10 @@ class Components:
                 logger.error('Some error occurred in login. Check you login details in config.json.\n%s', e)
 
         if self.config['hotword_engine'] == 'Snowboy':
-            from ..hotword_engine.snowboy_detector import SnowboyDetector
+            from main.hotword_engine.snowboy_detector import SnowboyDetector
             self.hotword_detector = SnowboyDetector()
         else:
-            from ..hotword_engine.sphinx_detector import PocketSphinxDetector
+            from main.hotword_engine.sphinx_detector import PocketSphinxDetector
             self.hotword_detector = PocketSphinxDetector()
 
         if self.config['WakeButton'] == 'enabled':

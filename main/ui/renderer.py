@@ -1,6 +1,6 @@
 from abc import ABC, abstractclassmethod
 from rx.subjects import Subject
-from .. import SusiStateMachine
+from main import SusiStateMachine
 
 
 class Renderer(ABC):
