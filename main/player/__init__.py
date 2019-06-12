@@ -5,7 +5,7 @@ import requests
 from vlcplayer import vlcplayer
 
 logger = logging.getLogger(__name__)
-default_mode = 'server'
+default_mode = 'mixed'
 baseurl = 'http://localhost:7070/'
 
 def send_request(req):
@@ -18,14 +18,14 @@ class Player():
     def __init__(self, mode = None):
         if mode is None:
             mode = default_mode
-        if (not mode == 'server') and (not mode == 'direct'):
+        if (not mode == 'server') and (not mode == 'direct') and (not mode == 'mixed'):
             logger.error('unknown mode %s, trying default mode', mode)
             mode = default_mode
-        if mode == 'server':
+        if mode == 'server' or mode == 'mixed':
             # try to check whether server is available
             try:
                 requests.post(baseurl + 'status')
-                self.mode = 'server'
+                self.mode = mode
             except Exception:
                 self.mode = 'direct'
                 logger.info('sound server not available, switching to direct play mode')
