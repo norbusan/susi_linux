@@ -39,7 +39,7 @@ def speak_flite_tts(text):
         fdout, wav_output = tempfile.mkstemp(suffix='.wav', dir=tmpdirname)
         subprocess.call(   # nosec #pylint-disable type: ignore
             ['flite', '-v', '-voice', 'file://' + flite_speech_file, '-f', filename, '-o', wav_output])   # nosec #pylint-disable type: ignore
-        player.say(wav_output)
+        player.say(wav_output, mode = 'direct')
 
 
 def speak_watson_tts(text):
@@ -75,7 +75,7 @@ def speak_watson_tts(text):
             audio_file.write(
                 text_to_speech.synthesize(text, accept='audio/wav', voice=voice))
 
-        player.say(wav_output)
+        player.say(wav_output, mode = 'direct')
 
 
 def speak_google_tts(text):
@@ -87,7 +87,7 @@ def speak_google_tts(text):
     with tempfile.TemporaryDirectory() as tmpdirname:
         fd, mpiii = tempfile.mkstemp(suffix='.mp3', dir=tmpdirname)
         Speech(text=text, lang=susi_config["language"]).save(mpiii)
-        player.say(mpiii)
+        player.say(mpiii, mode = 'direct')
 
     #sox_effects = ("tempo", "1.2", "pitch", "2", "speed", "1")
     #player.save_softvolume()

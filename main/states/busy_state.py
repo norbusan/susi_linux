@@ -52,7 +52,8 @@ class BusyState(State):
                 no_answer_needed = True
                 player.volume(reply['volume'])
                 player.say(os.path.abspath(os.path.join(self.components.config['data_base_dir'],
-                                                        self.components.config['detection_bell_sound'])))
+                                                        self.components.config['detection_bell_sound'])),
+                           mode = 'direct')
 
             if 'media_action' in reply.keys():
                 action = reply['media_action']

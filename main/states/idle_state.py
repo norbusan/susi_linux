@@ -45,7 +45,8 @@ class IdleState(State):
     def __detected(self):
         if (self.isActive):
             player.beep(os.path.abspath(os.path.join(self.components.config['data_base_dir'],
-                                                     self.components.config['detection_bell_sound'])))
+                                                     self.components.config['detection_bell_sound'])),
+                        mode = 'direct')
             self.transition(state=self.allowedStateTransitions.get(
                 'recognizing'), payload=None)
 

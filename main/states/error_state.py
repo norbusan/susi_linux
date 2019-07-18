@@ -25,7 +25,8 @@ class ErrorState(State):
             self.notify_renderer('error', 'recognition')
             lights.speak()
             player.say(os.path.abspath(os.path.join(self.components.config['data_base_dir'],
-                                                    self.components.config['recognition_error_sound'])))
+                                                    self.components.config['recognition_error_sound'])),
+                       mode = 'direct')
             lights.off()
         elif payload == 'ConnectionError':
             self.notify_renderer('error', 'connection')
@@ -40,7 +41,8 @@ class ErrorState(State):
             self.notify_renderer('error')
             lights.speak()
             player.say(os.path.abspath(os.path.join(self.components.config['data_base_dir'],
-                                                    self.components.config['problem_sound'])))
+                                                    self.components.config['problem_sound'])),
+                       mode = 'direct')
             lights.off()
 
         self.transition(self.allowedStateTransitions.get('idle'))
