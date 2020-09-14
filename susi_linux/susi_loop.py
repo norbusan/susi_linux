@@ -418,8 +418,8 @@ class SusiLoop():
 
             self.notify_renderer('speaking', payload={'susi_reply': reply})
 
-            if 'meta_action' in reply.keys():
-                if reply['meta_action'] == "pause-voice":
+            #if 'meta_action' in reply.keys():
+            #    if reply['meta_action'] == "pause-voice":
 
 
                 
