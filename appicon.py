@@ -13,10 +13,18 @@
 #  - configure
 #  - about
 #  - exit
-# status display
-# [ ] susi server running
-# [ ] susi etherpad running
-# [ ] susi voice recognition running
+#
+# TODO:
+# - start susi linux, but enable a pause/resume mode for faster startup?
+#   maybe not necessary
+# - configure: after changes, make sure that a running susi linux is restarted
+# - app window: allow opening an app window, but reuse the susi linux when it is running
+#   currently a new susi linux process is restarted
+#
+# OVERALL
+# separate out susi_loop and related stuff into susi-voice repository
+# keep susi-linux as susi-linux-frontend
+
 
 import pystray
 import sys
