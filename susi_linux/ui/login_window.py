@@ -134,7 +134,7 @@ class LoginWindow():
             result = re.match(
                 '^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$', email)
 
-            if result is not None and password is not '':
+            if result is not None and password != '':
                 self.login_window.sign_in_button.set_sensitive(True)
             else:
                 self.login_window.sign_in_button.set_sensitive(False)
